@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Post} from '../post.model';
+import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Post } from '../post.model';
 
 @Component({
   selector: 'app-post-list',
@@ -8,10 +8,11 @@ import {Post} from '../post.model';
     <h1 *ngIf="posts">{{ posts.length }}</h1>
     <ul>
         <li *ngFor="let post of posts">
-            <app-post [post]="post"></app-post>
+            <a [routerLink]="['/posts', post.id]">
+                <app-post [post]="post"></app-post>
+            </a>
         </li>
     </ul>
-
   `,
   styles: []
 })
